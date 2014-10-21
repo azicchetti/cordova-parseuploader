@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="org.apache.cordova.plugins.parseuploader" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ParseUploader</name>
+    <js-module name="ParseUploader" src="www/ParseUploader.js">
+        <clobbers target="cordova.plugins.ParseUploader" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ParseUploader">
+                <param name="ios-package" value="CDVParseUploader"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVParseUploader.h" />
+        <source-file src="src/ios/CDVParseUploader.m" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ParseUploader">
+                <param name="android-package" value="org.apache.cordova.plugins.ParseUploader" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/ParseUploader.java" target-dir="src/org/apache/cordova/plugins" />      
+     </platform>
+</plugin>
